@@ -1,95 +1,94 @@
+"use client"
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Col, Divider, Flex, Row } from "antd";
+import { StyledMain } from "./_component/Styledmain";
+import { Header } from "./_component/Header";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <StyledMain>
+      <Header></Header>
+      <Flex vertical className="main-container" justify="center" align="center">
+        <Flex className="title-box" justify="center" align="center" vertical>
+          <div>양태현 <br /></div>
+          <div>프론트엔드 개발자 포트폴리오</div>
+        </Flex>
+        <Divider />
+        <Flex>
+          <Flex className="text-box" vertical justify="center" align="center">
+            <div>안녕하세요?</div>
+            <div>AI와 프론트엔드 기술에 관심이 많은 사람입니다!</div>
+            <div>언제나 새로운기술에 도전하고 싶습니다!</div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          </Flex>
+        </Flex>
+      </Flex>
+      <Flex className="container" vertical gap={'middle'} justify="center" align="center">
+        <h1>ABOUT ME</h1>
+        <Flex vertical gap={'middle'} style={{ width: '100%' }}>
+          <Row>
+            <Col span={8}>
+              <Flex style={{ width: '100%' }} justify="space-between">
+                <div>아이콘</div>
+                <Flex vertical>
+                  <div>위쪽</div>
+                  <div>아래쪽</div>
+                </Flex>
+              </Flex>
+            </Col>
+            <Col span={8}>
+              <Flex style={{ width: '100%' }} justify="space-between">
+                <div>아이콘</div>
+                <Flex vertical>
+                  <div>위쪽</div>
+                  <div>아래쪽</div>
+                </Flex>
+              </Flex>
+            </Col>
+            <Col span={8}>
+              <Flex style={{ width: '100%' }} justify="space-between">
+                <div>아이콘</div>
+                <Flex vertical>
+                  <div>위쪽</div>
+                  <div>아래쪽</div>
+                </Flex>
+              </Flex>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={8}>
+              <Flex style={{ width: '100%' }} justify="space-between">
+                <div>아이콘</div>
+                <Flex vertical>
+                  <div>위쪽</div>
+                  <div>아래쪽</div>
+                </Flex>
+              </Flex>
+            </Col>
+            <Col span={8}>
+              <Flex style={{ width: '100%' }} justify="space-between">
+                <div>아이콘</div>
+                <Flex vertical>
+                  <div>위쪽</div>
+                  <div>아래쪽</div>
+                </Flex>
+              </Flex>
+            </Col>
+            <Col span={8}>
+              <Flex style={{ width: '100%' }} justify="space-between">
+                <div>아이콘</div>
+                <Flex vertical>
+                  <div>위쪽</div>
+                  <div>아래쪽</div>
+                </Flex>
+              </Flex>
+            </Col>
+          </Row>
+        </Flex>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      </Flex>
+    </StyledMain>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
   );
 }
