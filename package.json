@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.6",
+    "@faker-js/faker": "^8.4.1",
     "antd": "^5.16.2",
     "next": "14.2.1",
     "react": "^18",
