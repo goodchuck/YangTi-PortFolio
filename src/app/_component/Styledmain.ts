@@ -9,7 +9,7 @@ export const StyledMain = styled.main`
     font-family: Black Han Sans, sans-serif;
 
     & > .main-container {
-        width: 70%;
+        width: 100%;
         height: 500px;
         word-break: keep-all;
         background-color: green;
@@ -33,7 +33,29 @@ export const StyledMain = styled.main`
     }
 
     & .container {
-        width: 70%;
-        height: 500px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        min-height: 300px;
+        /* background-color: aqua; */
+        & > .header {
+            font-weight: 400;
+            font-size: 3rem;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+        }
+    }
+
+    & .aboutme {
+        .icon {
+            font-size: 48px;
+        }
+        .top {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .bottom {
+            font-size: 1rem;
+        }
     }
 `;
