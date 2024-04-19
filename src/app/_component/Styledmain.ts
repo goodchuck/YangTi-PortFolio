@@ -8,6 +8,25 @@ export const StyledMain = styled.main`
     align-items: center;
     font-family: Black Han Sans, sans-serif;
 
+    @font-face {
+        font-family: "GOR";
+        src: url("./fonts/GasoekOne-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Black Han Sans";
+        src: url("./fonts/BlackHanSans-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Noto Sans KR";
+        src: url("./fonts/NotoSansKR-VariableFont_wght.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+
     & > .main-container {
         width: 100%;
         height: 500px;
