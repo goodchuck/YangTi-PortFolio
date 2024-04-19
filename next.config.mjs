@@ -2,12 +2,12 @@ const isProd = process.env.NODE_ENV === 'production';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    // assetPrefix: isProd ? '/YangTi-PortFolio' : '',
+    assetPrefix: isProd ? '/YangTi-PortFolio' : '',
     basePath: isProd ? '/YangTi-PortFolio' : '',
     images: {
         domains: ['noticon-static.tammolo.com', 'loremflickr.com'],
         unoptimized: true
-    }
+    },
 };
 
 export default nextConfig;

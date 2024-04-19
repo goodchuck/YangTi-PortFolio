@@ -18,7 +18,7 @@ export const StyledMain = styled.main`
                 rgba(112, 93, 80, 0.8) 0,
                 rgba(112, 93, 80, 0.8) 90%
             ),
-            url("/assets/image.png") 50% no-repeat;
+            url("./assets/image.png") 50% no-repeat;
         /* opacity: 0.7; */
         color: #fff;
         & .title-box {
