@@ -8,12 +8,12 @@ import { CalendarOutlined, EditOutlined, EnvironmentOutlined, MailOutlined, Phon
 import { SkillComponent } from "./_component/SkillComponent";
 import { Project, ProjectCard } from "./_component/project/ProjectCard";
 import { faker } from "@faker-js/faker"
-
+console.log("isProd?", process.env.NODE_ENV, process.env.NEXT_PUBLIC_BASE_URL);
 const projects: Project[] = [
   {
     isPort: true,
     title: "YangGPT",
-    description: '2024 / 02 (1인 개발)',
+    description: '2024 / 03 (1인 개발)',
     outline: `OpenAI를 활용해 챗봇 및 여러 기능을 테스트해본 사이트입니다.
     AI의 시대가 올수 있음에 따라 시장 조사 및 프론트로써의 활용을 하기위해 제작하게 되었습니다.
 
@@ -133,14 +133,14 @@ export default function Home() {
           <Flex vertical>
             <div>Front-End</div>
             <Flex gap={'middle'} style={{ backgroundColor: 'white' }}>
-              <SkillComponent src='/icons/html5-color.svg' text='HTML5' />
-              <SkillComponent src='/icons/css3-color.svg' text='CSS3' />
-              <SkillComponent src='/icons/javascript-color.svg' text='JS' />
-              <SkillComponent src='/icons/typescript-color.svg' text='TS' />
-              <SkillComponent src='/icons/react-color.svg' text='React' />
+              <SkillComponent src='./icons/html5-color.svg' text='HTML5' />
+              <SkillComponent src='./icons/css3-color.svg' text='CSS3' />
+              <SkillComponent src='./icons/javascript-color.svg' text='JS' />
+              <SkillComponent src='./icons/typescript-color.svg' text='TS' />
+              <SkillComponent src='./icons/react-color.svg' text='React' />
 
-              <SkillComponent src='/icons/nextdotjs-color.svg' text='Next.js' />
-              <SkillComponent src='/icons/reactquery-color.svg' text='ReactQuery' />
+              <SkillComponent src='./icons/nextdotjs-color.svg' text='Next.js' />
+              <SkillComponent src='./icons/reactquery-color.svg' text='ReactQuery' />
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566557264/noticon/eyhvbmh82nhdoydl4j2a.png' text='Node.js' />
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png' text='Styled-Components' />
             </Flex>
@@ -152,8 +152,8 @@ export default function Home() {
             <Flex gap={'middle'} style={{ backgroundColor: 'white' }}>
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1675253316/noticon/gg2mfsvpu2aje4f8rpuc.png' text='zustand' />
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1570521380/noticon/lbpvcvhvvszxrlu78vnc.png' text='electron' />
-              <SkillComponent src='/icons/threedotjs-color.svg' text='THREE.js' />
-              <SkillComponent src='/icons/chartdotjs-color.svg' text='Chart.js' />
+              <SkillComponent src='./icons/threedotjs-color.svg' text='THREE.js' />
+              <SkillComponent src='./icons/chartdotjs-color.svg' text='Chart.js' />
             </Flex>
           </Flex>
 
@@ -169,7 +169,7 @@ export default function Home() {
           <Flex vertical>
             <div>AI</div>
             <Flex gap={'middle'} style={{ backgroundColor: 'white' }}>
-              <SkillComponent src='/icons/openai-color.svg' text='OpenAI' />
+              <SkillComponent src='./icons/openai-color.svg' text='OpenAI' />
             </Flex>
           </Flex>
           <Flex vertical>

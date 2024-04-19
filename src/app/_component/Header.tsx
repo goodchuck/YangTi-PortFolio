@@ -10,7 +10,7 @@ export const Header = () => {
         <StyledHeader>
             <Flex className="main-container" align="center" justify="space-between">
                 <div className="header-title">
-                    YTH's Portfolio
+                    YTH Portfolio
                 </div>
                 {/* 목차들 */}
                 <Flex gap={'middle'} className="list-container">
