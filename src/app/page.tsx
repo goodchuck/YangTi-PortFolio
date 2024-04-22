@@ -269,7 +269,7 @@ export default function Home() {
 
       {/* ARCHIVING */}
       <Flex className="container archive" vertical gap={'middle'} align="center" style={{ backgroundColor: 'black' }}>
-        <div className="header" style={{ color: 'white' }}>개인 기록</div>
+        <div className="header" style={{ color: 'white' }}>Archive</div>
 
         {/* Card들 */}
         <Flex gap={'middle'}>
