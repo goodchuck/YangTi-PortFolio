@@ -15,8 +15,9 @@ export const Header = () => {
                 {/* 목차들 */}
                 <Flex gap={'middle'} className="list-container">
                     <div>About me</div>
+                    <div>Archive</div>
                     <div>Skills</div>
-                    <div>Archiving</div>
+
                     <div>Projects</div>
                     <div>Career</div>
                 </Flex>

@@ -5,9 +5,10 @@ export const StyledProjectCard = styled.div`
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    padding: 3rem;
+
+    padding: 1rem 3rem 1rem 3rem;
     background-color: #fff;
-    width: 1000px;
+    width: 70%;
     /* height: 900px; */
     font-family: Noto Sans KR, sans-serif;
     /* font-weight: 400; */
@@ -39,12 +40,19 @@ export const StyledProjectCard = styled.div`
     }
 
     & .header {
-        width: 170px;
+        width: 110px;
     }
 
     & .value {
+        max-width: 400px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        /* white-space: nowrap; */
+        /* text-overflow: ellipsis; */
+        & a {
+            color: #258ddb;
+            cursor: pointer;
+        }
     }
 `;

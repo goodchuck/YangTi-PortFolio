@@ -1,9 +1,9 @@
 "use client"
-import Image from "next/image"
-import { Flex, Carousel, Divider, Button } from "antd"
+// import Image from "next/image"
+import { Flex, Carousel, Divider, Button, Image } from "antd"
 import { StyledProjectCard } from "./StyledProjectCard";
 
-const ImageProps = { width: 450, height: 400 }
+const ImageProps = { width: 650, height: 400 }
 const contentStyle: React.CSSProperties = {
     height: `${ImageProps.height}px`,
     color: '#fff',
@@ -17,11 +17,12 @@ export type Project = {
     title: string,
     description: string,
     outline: string,
-    link: string,
+    link?: string,
     images: any[],
     main: string,
-    git: string,
-    url: string,
+    git?: string,
+    url?: string,
+    notion?: string,
     Frontend: string,
     Backend: string,
     Database: string,
@@ -30,8 +31,8 @@ export type Project = {
 }
 
 export const ProjectCard = ({
-    title, description, outline, link, images,
-    main, git, url, Frontend, Backend, Database, Deployment
+    isPort = true, title, description, outline, link, images,
+    main, git, url, notion, Frontend, Backend, Database, Deployment
 }: Project) => {
 
     const handleClickEvent = () => {
@@ -41,7 +42,7 @@ export const ProjectCard = ({
     return (
         <StyledProjectCard>
             <div className="title">{title}</div>
-            <div className="description">{description}</div>
+            <div className="description">{description} / {isPort ? '포트폴리오' : '회사프로젝트'}</div>
             <Flex style={{ width: '100%' }} gap={"middle"}>
                 <div style={{ width: '50%', height: '500px' }}>
                     <Carousel autoplay>
@@ -71,11 +72,11 @@ export const ProjectCard = ({
                     <Flex vertical gap={"middle"}>
                         <h3>O 프로젝트 설명</h3>
                         <div style={{ whiteSpace: 'pre-line' }}>{outline}</div>
-                        <Button style={{ width: '200px' }} onClick={handleClickEvent}>자세히 보러가기</Button>
+                        {/* <Button style={{ width: '200px' }} onClick={handleClickEvent}>자세히 보러가기</Button> */}
                     </Flex>
 
                     <Divider />
-                    <div>
+                    <Flex vertical gap='small'>
                         <Flex gap={'middle'}>
                             <div className="icon">
                                 ✔
@@ -83,7 +84,7 @@ export const ProjectCard = ({
                             <div className="header">
                                 주요기능
                             </div>
-                            <div className="value">{main}
+                            <div className="value" style={{ whiteSpace: 'pre-line' }}>{main}
                             </div>
                         </Flex>
                         <Flex gap={'middle'}>
@@ -94,7 +95,7 @@ export const ProjectCard = ({
                                 GitHub
                             </div>
                             <div className="value">
-                                {git}
+                                {git ? (<a href={git}>Git 주소로가기</a>) : '-'}
                             </div>
                         </Flex>
                         <Flex gap={'middle'}>
@@ -105,7 +106,18 @@ export const ProjectCard = ({
                                 URL
                             </div>
                             <div className="value">
-                                {url}
+                                {url ? (<a href={url}>홈페이지 보러가기</a>) : '-'}
+                            </div>
+                        </Flex>
+                        <Flex gap={'middle'}>
+                            <div className="icon">
+                                ✔
+                            </div>
+                            <div className="header">
+                                Notion
+                            </div>
+                            <div className="value">
+                                {notion ? (<a href={notion}>프로젝트 설계 보러가기</a>) : '-'}
                             </div>
                         </Flex>
                         <Flex gap={'middle'}>
@@ -152,7 +164,7 @@ export const ProjectCard = ({
                                 {Deployment}
                             </div>
                         </Flex>
-                    </div>
+                    </Flex>
                 </Flex>
 
             </Flex>

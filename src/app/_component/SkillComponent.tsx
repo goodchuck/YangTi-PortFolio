@@ -11,9 +11,9 @@ type props = {
 }
 export const SkillComponent = ({ src, width, height, alt, text }: props) => {
     return (
-        <Flex vertical justify="center" align="center">
+        <Flex vertical justify="center" align="center" gap='small'>
             <Image src={src} width={width ? width : 32} height={height ? height : 32} alt={alt ? alt : 'null'}></Image>
-            <div style={{ fontSize: '1.2rem' }}>{text}</div>
+            <div>{text}</div>
         </Flex>
     )
 }

@@ -7,7 +7,7 @@ export const StyledMain = styled.main`
     justify-content: center;
     align-items: center;
     font-family: Black Han Sans, sans-serif;
-
+    color: #212529;
     @font-face {
         font-family: "GOR";
         src: url("./fonts/GasoekOne-Regular.ttf") format("truetype");
@@ -41,13 +41,13 @@ export const StyledMain = styled.main`
         /* opacity: 0.7; */
         color: #fff;
         & .title-box {
-            font-weight: 400;
+            /* font-weight: 400; */
             font-size: 4rem;
         }
 
         & .text-box {
             /* font-weight: 400; */
-            font-size: 1rem;
+            font-size: 2rem;
         }
     }
 
@@ -55,10 +55,9 @@ export const StyledMain = styled.main`
         padding-top: 20px;
         padding-bottom: 20px;
         width: 100%;
-        min-height: 300px;
         /* background-color: aqua; */
         & > .header {
-            font-weight: 400;
+            /* font-weight: 400; */
             font-size: 3rem;
             border-bottom-width: 1px;
             border-bottom-style: solid;
@@ -75,6 +74,34 @@ export const StyledMain = styled.main`
         }
         .bottom {
             font-size: 1rem;
+        }
+    }
+
+    & .skills {
+        background-color: yellow;
+        & .container {
+            width: 70%;
+        }
+        & .skills-container {
+            & .title {
+                font-size: 1.2rem;
+            }
+        }
+        & .skill-row {
+            background-color: white;
+            padding: 20px;
+        }
+    }
+
+    & .archive {
+        & .card {
+            width: 350px;
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 20px;
+            & a {
+                color: blue;
+            }
         }
     }
 `;
