@@ -2,6 +2,7 @@
 // import Image from "next/image"
 import { Flex, Carousel, Divider, Button, Image } from "antd"
 import { StyledProjectCard } from "./StyledProjectCard";
+import { forwardRef } from "react";
 
 const ImageProps = { width: 650, height: 400 }
 const contentStyle: React.CSSProperties = {
@@ -13,6 +14,7 @@ const contentStyle: React.CSSProperties = {
 };
 
 export type Project = {
+    projectId?: string;
     isPort?: boolean;
     title: string,
     description: string,
@@ -30,17 +32,18 @@ export type Project = {
 
 }
 
-export const ProjectCard = ({
-    isPort = true, title, description, outline, link, images,
+
+export const ProjectCard = forwardRef<HTMLDivElement, Project>(({
+    projectId, isPort = true, title, description, outline, link, images,
     main, git, url, notion, Frontend, Backend, Database, Deployment
-}: Project) => {
+}, ref) => {
 
     const handleClickEvent = () => {
         alert(`click ${link}`)
     }
 
     return (
-        <StyledProjectCard>
+        <StyledProjectCard id={projectId ? projectId : undefined} ref={ref}>
             <div className="title">{title}</div>
             <div className="description">{description} / {isPort ? '포트폴리오' : '회사프로젝트'}</div>
             <Flex style={{ width: '100%' }} gap={"middle"}>
@@ -170,4 +173,4 @@ export const ProjectCard = ({
             </Flex>
         </StyledProjectCard>
     )
-}
+})

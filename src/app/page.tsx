@@ -1,13 +1,16 @@
 "use client"
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Col, Divider, Flex, Row } from "antd";
+import { Button, Col, Divider, Flex, Row } from "antd";
 import { StyledMain } from "./_component/Styledmain";
 import { Header } from "./_component/Header";
 import { CalendarOutlined, EditOutlined, EnvironmentOutlined, MailOutlined, PhoneOutlined, UserOutlined } from "@ant-design/icons";
 import { SkillComponent } from "./_component/SkillComponent";
 import { Project, ProjectCard } from "./_component/project/ProjectCard";
 import { faker } from "@faker-js/faker"
+import { TypingContainer } from "./_component/TypingContainer";
+import { TypingEffect } from "./_component/TypingEffect";
+import { useEffect, useRef, useState } from "react";
 const projects: Project[] = [
   {
     isPort: true,
@@ -84,6 +87,7 @@ const projects: Project[] = [
     Deployment: 'Vercel'
   },
   {
+    projectId: '4S',
     isPort: false,
     title: "4S",
     description: '2023 (유지보수 및 기능개발)',
@@ -114,6 +118,7 @@ const projects: Project[] = [
     Deployment: 'AWS EC2'
   },
   {
+    projectId: 'Dorosee3DTool',
     isPort: false,
     title: "도로시3D어노테이션툴(웹)",
     description: '2023 (유지보수 및 기능 개발)',
@@ -145,6 +150,7 @@ const projects: Project[] = [
     Deployment: 'AWS EC2'
   },
   {
+    projectId: 'ROADPMS',
     isPort: false,
     title: "ROADPMS - 도로하자보수 분석 사이트",
     description: '2021 ~ 2023 (유지보수 및 기능 개발)',
@@ -176,28 +182,45 @@ const projects: Project[] = [
 ]
 
 export default function Home() {
+  // const [refs, setRefs] = useState<any[]>(projects.filter(v => v.projectId).map(v => v.projectId));
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  useEffect(() => {
+    console.log({ refs: projectRefs })
+  }, [projectRefs])
+
+  const scrollToProject = (id: string) => {
+    if (projectRefs.current) {
+      for (let ref of projectRefs.current) {
+        if (ref && ref.id && ref.id === id) {
+          ref.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+      }
+    }
+  }
+
   return (
     <StyledMain>
       <Header></Header>
       {/* 자기소개 */}
-      <Flex vertical className="main-container" justify="center" align="center">
-        <Flex className="title-box" justify="center" align="center" vertical>
-          <div>양태현 <br /></div>
-          <div>프론트엔드 개발자 포트폴리오</div>
-        </Flex>
-        <Divider />
-        <Flex>
-          <Flex className="text-box" vertical justify="center" align="center">
-            <div>안녕하세요?</div>
-            <div>AI와 프론트엔드 기술에 관심이 많은 사람입니다!</div>
-            <div>언제나 새로운기술에 도전하고 싶습니다!</div>
+      <div className="typer-box">
+        <TypingEffect strings={[`안녕하세요!`, `프론트엔드 개발자 양태현의 포트폴리오입니다!`]} size="4rem" />
+      </div>
 
-          </Flex>
-        </Flex>
-      </Flex>
       {/* About Me */}
       <Flex className="container aboutme" vertical gap={'middle'} align="center">
         <div className="header">ABOUT ME</div>
+
+        <Flex vertical gap={'middle'} style={{ width: '70%' }}>
+          <h1>안녕하세요! 프론트엔드개발자 양태현이라고 합니다!</h1>
+          <div className="innerContainer">
+            <p>3년차 프론트엔드 개발자입니다!</p>
+            <p>프론트엔드와 AI 그리고 추가로 백엔드에도 관심이 많은 개발자입니다!</p>
+            <p>새로운 기술을 시도하는 것을 좋아하고 세상의 돌아가는 일의 자동화 및 고도화하는 것을 좋아합니다!</p>
+            <p>자동화 및 고도화를 수행하기위해 세상을 이해하고 구현하는 알고리즘도 공부를 하고있습니다!</p>
+            <p>그리고 사용자에게 좋은 경험을 전달하고싶어 프론트엔드 기술도 열심히 공부하고있습니다!</p>
+          </div>
+        </Flex>
+
         <Flex vertical gap={'middle'} style={{ width: '70%' }}>
           <Row>
             <Col span={8}>
@@ -260,6 +283,7 @@ export default function Home() {
             </Col>
           </Row>
         </Flex>
+
         <Flex vertical justify="center">
           <div>
             문의는 위 연락처 또는 이메일로 부탁드립니다!
@@ -276,7 +300,8 @@ export default function Home() {
           <Flex vertical gap={'middle'} className="card">
             <Flex gap={'middle'} align="center">
               <Image src={'./icons/gold1.svg'} width={64} height={64} alt="github"></Image>
-              <p>백준 알고리즘 / 24년 4월기준 : 골드 1</p>
+              <div style={{ whiteSpace: 'pre-line' }}>{`백준 알고리즘
+              24년 4월기준 : 골드 1`}</div>
             </Flex>
             <Flex vertical>
               <a href='https://solved.ac/profile/y502100'>백준 프로필</a>
@@ -316,6 +341,68 @@ export default function Home() {
           </Flex>
         </Flex>
 
+      </Flex>
+
+      {/* Experience */}
+      <Flex className="container experience" vertical gap={'middle'} align="center">
+        <div className="header">Experience</div>
+        <Flex gap={'middle'} className={'inner-container'}>
+          <div className="left">
+            <Flex gap={'middle'}>
+              <Image src={'./company/logo-dorosee.svg'} width={32} height={32} alt='도로시'></Image>
+              <p>(주)도로시</p>
+            </Flex>
+            <p>프론트엔드 개발자 - 2021.05 ~ 2023.12</p>
+          </div>
+          <div className="right">
+            <p>(주)도로시는 AI를 활용하여 다양한 SI업무를 수행하는 곳 입니다.</p>
+            <p>해당 기업에 입사하여 BTB에맞는 프로그램개발 및 웹사이트 개발을 하였습니다.</p>
+            <p>회사가 아직 프로세스가 정립이 안되어있던 상황이였어서 개발자들과 디자이너, 기획자 등등</p>
+            <p>업무 프로세스를 맞추는 여러 방법들을 시행착오를 해보았고</p>
+            <p>회사 내 프론트팀의 코드 문화를 팀원들과 어떻게 맞춰나가면 좋을지 항상 고민하고 토론도 진행하였습니다</p>
+            <p>&nbsp;</p>
+            <Flex vertical gap={'large'}>
+              <h2>회사내 기여 내용</h2>
+              <Flex vertical gap={'middle'}>
+                <Flex gap={'middle'} align="center" justify="space-between">
+                  <h3>- 4S(건설의 오프라인 안전장치 고도화 사이트)</h3>
+                  <Button type="primary" onClick={() => scrollToProject("4S")}>프로젝트 보러가기</Button>
+                </Flex>
+                <Flex vertical className="contribute-container">
+                  <p>- 개발 도중에 참여하여 해당 사이트의 핵심 기능인 PTW(Permit-To-Work)를 개발하였습니다.</p>
+                  <p>- 오프라인의 PTW기능을 온라인으로 시뮬레이션 및 알고리즘화하여 기술을 적용하였습니다.</p>
+                </Flex>
+              </Flex>
+
+              <Flex vertical gap={'middle'}>
+                <Flex gap={'middle'} align="center" justify="space-between">
+                  <h3>- 도로시 웹3D 어노테이션툴(자율주행 인공지능의 정답데이터를 만드는 사이트)</h3>
+                  <Button type="primary" onClick={() => scrollToProject("Dorosee3DTool")}>프로젝트 보러가기</Button>
+                </Flex>
+                <Flex vertical className="contribute-container">
+                  <p>- 전면 개발을 진행하였고 90%이상 개발을하였고 실제로 연구기관에도 연구용으로 활용되기도하였습니다.</p>
+                  <p>- 3D좌표 to 2D를 이용하는 로직과 좌표계를 이용한 이벤트들을 개발하였습니다.</p>
+
+                </Flex>
+
+              </Flex>
+
+              <Flex vertical gap={'middle'}>
+                <Flex gap={'middle'} align="center" justify="space-between">
+                  <h3>- ROADPMS(도로하자보수 분석 사이트)</h3>
+                  <Button type="primary" onClick={() => scrollToProject("ROADPMS")}>프로젝트 보러가기</Button>
+                </Flex>
+                <Flex vertical className="contribute-container">
+                  <p>- 유지보수 및 새로운 기술 개발을 담당하였습니다.</p>
+                </Flex>
+              </Flex>
+
+            </Flex>
+
+
+          </div>
+        </Flex>
+        <Divider />
       </Flex>
 
       {/* Skills */}
@@ -383,8 +470,9 @@ export default function Home() {
       <Flex className="container" vertical gap={'middle'} align="center" style={{ backgroundColor: '#6cdab2' }}>
         <div className="header" style={{ color: 'white' }}>PROJECTS</div>
         <Flex vertical gap={'middle'} align="center" style={{ width: '100%' }}>
-          {projects.map((obj, index) => (<ProjectCard key={index} {...obj} />))}
-
+          {projects.map((obj, index) => (<ProjectCard key={index} {...obj} ref={(ref) => {
+            projectRefs.current[index] = ref;
+          }} />))}
         </Flex>
       </Flex>
     </StyledMain>

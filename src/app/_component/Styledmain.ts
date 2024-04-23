@@ -6,7 +6,7 @@ export const StyledMain = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Black Han Sans, sans-serif;
+    font-family: "Archivo Black", sans-serif;
     color: #212529;
     @font-face {
         font-family: "GOR";
@@ -27,6 +27,13 @@ export const StyledMain = styled.main`
         font-style: normal;
     }
 
+    @font-face {
+        font-family: "Archivo Black", sans-serif;
+        src: url("./fonts/ArchivoBlack-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+    }
+
     & > .main-container {
         width: 100%;
         height: 500px;
@@ -37,7 +44,7 @@ export const StyledMain = styled.main`
                 rgba(112, 93, 80, 0.8) 0,
                 rgba(112, 93, 80, 0.8) 90%
             ),
-            url("./assets/image.png") 50% no-repeat;
+            url("./assets/frame.jpg") 50% no-repeat;
         /* opacity: 0.7; */
         color: #fff;
         & .title-box {
@@ -51,13 +58,32 @@ export const StyledMain = styled.main`
         }
     }
 
+    & .typer-box {
+        margin-top: 72px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+        /* background-image: url("./assets/background1.jpg"); */
+        /* background-attachment: fixed; */
+        /* background-repeat: no-repeat; */
+        /* background-size: cover; */
+        color: white;
+        width: 100%;
+
+        & > p {
+            font-size: 5rem;
+        }
+    }
+
     & .container {
         padding-top: 20px;
         padding-bottom: 20px;
         width: 100%;
         /* background-color: aqua; */
         & > .header {
-            /* font-weight: 400; */
+            font-weight: 700;
             font-size: 3rem;
             border-bottom-width: 1px;
             border-bottom-style: solid;
@@ -65,6 +91,7 @@ export const StyledMain = styled.main`
     }
 
     & .aboutme {
+        /* height: 100vh; */
         .icon {
             font-size: 48px;
         }
@@ -74,6 +101,42 @@ export const StyledMain = styled.main`
         }
         .bottom {
             font-size: 1rem;
+        }
+
+        & .innerContainer {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.25rem;
+        }
+    }
+
+    & .archive {
+        & .card {
+            width: 350px;
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 20px;
+            & a {
+                color: blue;
+            }
+        }
+    }
+
+    & .experience {
+        & .inner-container {
+            width: 70%;
+            & .left {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+            }
+            & .right {
+                width: 70%;
+
+                & .contribute-container {
+                    padding-left: 20px;
+                }
+            }
         }
     }
 
@@ -90,18 +153,6 @@ export const StyledMain = styled.main`
         & .skill-row {
             background-color: white;
             padding: 20px;
-        }
-    }
-
-    & .archive {
-        & .card {
-            width: 350px;
-            background-color: white;
-            border-radius: 0.5rem;
-            padding: 20px;
-            & a {
-                color: blue;
-            }
         }
     }
 `;
