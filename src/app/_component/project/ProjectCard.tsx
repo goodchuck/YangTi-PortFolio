@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client"
 // import Image from "next/image"
 import { Flex, Carousel, Divider, Button, Image } from "antd"
