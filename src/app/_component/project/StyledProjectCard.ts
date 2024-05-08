@@ -13,6 +13,10 @@ export const StyledProjectCard = styled.div`
     font-family: Noto Sans KR, sans-serif;
     /* font-weight: 400; */
     gap: 10px;
+    & a {
+        color: #258ddb;
+        cursor: pointer;
+    }
     & > .title {
         font-weight: 400;
         color: #222;

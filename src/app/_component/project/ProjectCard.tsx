@@ -29,13 +29,14 @@ export type Project = {
     Backend: string,
     Database: string,
     Deployment: string
-
+    youtubeLink?: string
+    isVisible?: boolean;
 }
 
 
 export const ProjectCard = forwardRef<HTMLDivElement, Project>(({
     projectId, isPort = true, title, description, outline, link, images,
-    main, git, url, notion, Frontend, Backend, Database, Deployment
+    main, git, url, notion, Frontend, Backend, Database, Deployment, youtubeLink
 }, ref) => {
 
     const handleClickEvent = () => {
@@ -69,6 +70,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, Project>(({
                             <div style={contentStyle}>4</div>
                         </div> */}
                     </Carousel>
+                    {youtubeLink && ((<a href={youtubeLink}>youtube보러가기!</a>))}
                 </div>
 
                 <Flex vertical style={{ width: '50%' }}>

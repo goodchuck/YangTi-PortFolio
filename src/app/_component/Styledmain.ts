@@ -7,6 +7,7 @@ export const StyledMain = styled.main`
     justify-content: center;
     align-items: center;
     font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
     color: #212529;
     @font-face {
         font-family: "GOR";

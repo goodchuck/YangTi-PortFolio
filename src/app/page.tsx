@@ -14,6 +14,49 @@ import { useEffect, useRef, useState } from "react";
 const projects: Project[] = [
   {
     isPort: true,
+    title: "네이버/티스토리 & ChatGPT 블로그 자동 포스팅기",
+    description: '2024. 04 (1인 개발) / 웹 & 앱',
+    outline: `Next.js와 Electron 및 ChatGPT를 합쳐서 만든 프로젝트입니다.
+    Next.js사용없이 React으로 개발하면 되지 않나 싶지만 puppeteer는 기본적으로 fs모듈을 사용하기때문에
+    Electron으로도 가능은하지만 Electron을 벗어났을때 웹으로써 활용을 할수 없게됩니다.
+    그렇기에 서버컴포넌트를 도입을 위하여 Next.js를 활용하였습니다.
+    
+    AI의 시대가 다가오는만큼 자동화와 AI를 접목시키는 것이 중요해질 것이라 생각이되어 만든 프로젝트입니다.
+    
+    ChatGPT에게 주제를 던져주고 글을 받아온 후, 
+    pixabay라는 사이트에서 저작권 없는 이미지를 크롤링하여
+    랜덤으로 이미지를 가져온후, 
+    
+    주제텍스트와 합쳐서 주어진 계정만큼 반복하며
+    네이버와 Tistory에 자동 포스팅을 해줍니다. 
+    
+    아래 git은 private로 되어있으며
+    사용영상은 youtube로 간략하게 올려두어 좌측 하단에서
+    링크로 확인 하실 수 있습니다!
+    `,
+    link: '',
+    youtubeLink: 'https://youtu.be/GLzzxYmqUaE',
+    images: [
+      './projects/autopost/category/image1.png',
+      './projects/autopost/category/image2.png',
+      './projects/autopost/category/image3.png',],
+    main: `- OpenAI의 언어모델 ChatGPT3.5 Turbo를 사용
+    - Naver랑 Tistory의 한해서 입력한 아이디만큼 반복 포스팅을 합니다.
+    - Next.js와 Electron을 활용
+    - puppeteer를 활용한 자동화 작업
+    - node-canvas를 이용한 캔버스 활용
+    - 크몽사이트에 나와있는 자동 포스팅기의 기능을 구현(15만원 프로그램)
+    `,
+    git: 'https://github.com/goodchuck/yangti-auto-post',
+    url: '',
+    notion: 'https://www.notion.so/0cbdd7046f2e4395bfa2ad48b2378b87?pvs=4',
+    Frontend: 'Next.js, TypeScript',
+    Backend: '-',
+    Database: '-',
+    Deployment: 'electron 프로그램'
+  },
+  {
+    isPort: true,
     title: "PDF문제 생성기",
     description: '2024. 03 (1인 개발)',
     outline: `OpenAI의 ChatGPT4의 PDF읽기 기능을 이용하여
@@ -47,6 +90,7 @@ const projects: Project[] = [
     Deployment: 'AWS'
   },
   {
+    isVisible: false,
     isPort: true,
     title: "YangGPT",
     description: '2024 / 03 (1인 개발)',
@@ -59,7 +103,7 @@ const projects: Project[] = [
 
     배포는 AWS의 EC2를 이용하였고, let's Encript를 통해 https화도 같이 배워 사용하였습니다.`,
     link: 'https://yangti.site/',
-    images: [faker.image.urlLoremFlickr(), faker.image.urlLoremFlickr()],
+    images: [],
     main: `OpenAI를 활용
     `,
     git: 'https://github.com/goodchuck/yangGPT',
@@ -77,7 +121,10 @@ const projects: Project[] = [
     최신코드가 아닌것의 정보를 찾는건 제한적일 수 있기 때문에 해당 사이트에 코드를 저장하고
     버전별 사용법을 정리해둠으로써 코드저장소의 역할을 하는 사이트입니다`,
     link: 'https://nextjs-repo-kohl.vercel.app',
-    images: [faker.image.urlLoremFlickr(), faker.image.urlLoremFlickr()],
+    images: ['./projects/frontLibs/image1.png',
+      './projects/frontLibs/image2.png',
+      './projects/frontLibs/image3.png',
+      './projects/frontLibs/image4.png',],
     main: ``,
     git: 'https://github.com/goodchuck/nextjs-repo',
     url: 'https://nextjs-repo-kohl.vercel.app',
@@ -198,25 +245,44 @@ export default function Home() {
     }
   }
 
+
+  const firstRef = useRef<HTMLDivElement>(null);
+  const aboutMeRef = useRef<HTMLDivElement>(null);
+  const archiveRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
   return (
     <StyledMain>
-      <Header></Header>
+      <Header refs={{
+        firstRef,
+        aboutMeRef,
+        archiveRef,
+        experienceRef,
+        skillsRef,
+        projectsRef
+      }}></Header>
       {/* 자기소개 */}
-      <div className="typer-box">
+      <div className="typer-box" ref={firstRef}>
         <TypingEffect strings={[`안녕하세요!`, `프론트엔드 개발자 양태현의 포트폴리오입니다!`]} size="4rem" />
       </div>
 
       {/* About Me */}
-      <Flex className="container aboutme" vertical gap={'middle'} align="center">
+      <Flex className="container aboutme" vertical gap={'middle'} align="center" ref={aboutMeRef}>
         <div className="header">ABOUT ME</div>
 
         <Flex vertical gap={'middle'} style={{ width: '70%' }}>
           <h1>안녕하세요! 프론트엔드개발자 양태현이라고 합니다!</h1>
           <div className="innerContainer">
             <p>3년차 프론트엔드 개발자입니다!</p>
-            <p>프론트엔드와 AI 그리고 추가로 백엔드에도 관심이 많은 개발자입니다!</p>
+            <p>&nbsp;</p>
+            <p><b>프론트엔드</b>와 <b>AI</b> 그리고 <b>자동화</b>그리고 <b>알고리즘</b>에 관심이 많은 개발자입니다!</p>
+            <p>&nbsp;</p>
             <p>새로운 기술을 시도하는 것을 좋아하고 세상의 돌아가는 일의 자동화 및 고도화하는 것을 좋아합니다!</p>
+            <p>&nbsp;</p>
             <p>자동화 및 고도화를 수행하기위해 세상을 이해하고 구현하는 알고리즘도 공부를 하고있습니다!</p>
+            <p>&nbsp;</p>
             <p>그리고 사용자에게 좋은 경험을 전달하고싶어 프론트엔드 기술도 열심히 공부하고있습니다!</p>
           </div>
         </Flex>
@@ -292,7 +358,13 @@ export default function Home() {
       </Flex>
 
       {/* ARCHIVING */}
-      <Flex className="container archive" vertical gap={'middle'} align="center" style={{ backgroundColor: 'black' }}>
+      <Flex className="container archive"
+        vertical
+        gap={'middle'}
+        align="center"
+        style={{ backgroundColor: 'black' }}
+        ref={archiveRef}
+      >
         <div className="header" style={{ color: 'white' }}>Archive</div>
 
         {/* Card들 */}
@@ -309,10 +381,11 @@ export default function Home() {
               <a href='https://www.notion.so/43c257b935784a14814ac7df6e46e9a6'>알고리즘 정리 노션링크</a>
             </Flex>
 
-            <div>
-              - 24년 4월기준 골드 1로 상위 9퍼센트 달성
+            <Flex vertical>
+              <p>- 24년 12월 말 브론즈 5부터 시작!</p>
+              <p>- 24년 4월기준 골드 1로 상위 9퍼센트 달성</p>
 
-            </div>
+            </Flex>
           </Flex>
           <Flex vertical gap={'middle'} className="card">
             <Flex gap={'middle'} align="center">
@@ -339,12 +412,27 @@ export default function Home() {
               개인 개발 이슈들 정리한 곳!
             </div>
           </Flex>
+          <Flex vertical gap={'middle'} className="card">
+            <Flex gap={'middle'} align="center">
+              <Image src={'https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1605926847/noticon/ku5wj788ubjwba7pecrw.png'} width={64} height={64} alt="github"></Image>
+              <p>Tistory</p>
+            </Flex>
+            <Flex vertical>
+              <a href='https://yangtinomad.com/'>티스토리 링크</a>
+            </Flex>
+            <div>
+              자동화 테스트 및 노션과 병행해서 사용하려는 주소입니다!
+            </div>
+          </Flex>
         </Flex>
 
       </Flex>
 
       {/* Experience */}
-      <Flex className="container experience" vertical gap={'middle'} align="center">
+      <Flex className="container experience"
+        vertical gap={'middle'} align="center"
+        ref={experienceRef}
+      >
         <div className="header">Experience</div>
         <Flex gap={'middle'} className={'inner-container'}>
           <div className="left">
@@ -406,7 +494,7 @@ export default function Home() {
       </Flex>
 
       {/* Skills */}
-      <Flex className="container skills" vertical gap={'middle'} align="center">
+      <Flex className="container skills" vertical gap={'middle'} align="center" ref={skillsRef}>
         <div className="header">Skills</div>
         <Flex vertical gap={'middle'} className="container" >
           {/* 프론트엔드 */}
@@ -467,10 +555,12 @@ export default function Home() {
 
 
       {/* Projects */}
-      <Flex className="container" vertical gap={'middle'} align="center" style={{ backgroundColor: '#6cdab2' }}>
+      <Flex className="container"
+        vertical gap={'middle'} align="center" style={{ backgroundColor: '#6cdab2' }}
+        ref={projectsRef}>
         <div className="header" style={{ color: 'white' }}>PROJECTS</div>
         <Flex vertical gap={'middle'} align="center" style={{ width: '100%' }}>
-          {projects.map((obj, index) => (<ProjectCard key={index} {...obj} ref={(ref) => {
+          {projects.filter(v => v.isVisible !== false).map((obj, index) => (<ProjectCard key={index} {...obj} ref={(ref) => {
             projectRefs.current[index] = ref;
           }} />))}
         </Flex>
