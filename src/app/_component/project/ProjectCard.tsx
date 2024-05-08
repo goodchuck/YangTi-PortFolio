@@ -177,3 +177,6 @@ export const ProjectCard = forwardRef<HTMLDivElement, Project>(({
         </StyledProjectCard>
     )
 })
+
+ProjectCard.displayName = 'ProjectCard'
+export default ProjectCard

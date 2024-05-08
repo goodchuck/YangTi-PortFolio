@@ -8,7 +8,6 @@ import { CalendarOutlined, EditOutlined, EnvironmentOutlined, MailOutlined, Phon
 import { SkillComponent } from "./_component/SkillComponent";
 import { Project, ProjectCard } from "./_component/project/ProjectCard";
 import { faker } from "@faker-js/faker"
-import { TypingContainer } from "./_component/TypingContainer";
 import { TypingEffect } from "./_component/TypingEffect";
 import { useEffect, useRef, useState } from "react";
 const projects: Project[] = [

@@ -28,7 +28,7 @@ export const TypingEffect = ({ strings, size = '1rem' }: Props) => {
                 typed.current.destroy();
             }
         };
-    }, []);
+    }, [strings]);
 
     return <span ref={el} style={{ whiteSpace: 'pre', fontSize: size }} />;
 }
