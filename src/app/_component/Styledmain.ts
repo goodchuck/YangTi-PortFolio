@@ -6,34 +6,9 @@ export const StyledMain = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "Archivo Black", sans-serif;
-    font-weight: 400;
+    font-family: "Noto Sans KR", sans-serif;
+    /* font-weight: 400; */
     color: #212529;
-    @font-face {
-        font-family: "GOR";
-        src: url("./fonts/GasoekOne-Regular.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: "Black Han Sans";
-        src: url("./fonts/BlackHanSans-Regular.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: "Noto Sans KR";
-        src: url("./fonts/NotoSansKR-VariableFont_wght.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Archivo Black", sans-serif;
-        src: url("./fonts/ArchivoBlack-Regular.ttf") format("truetype");
-        font-weight: 400;
-        font-style: normal;
-    }
 
     & > .main-container {
         width: 100%;

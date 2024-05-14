@@ -498,7 +498,7 @@ export default function Home() {
         <Flex vertical gap={'middle'} className="container" >
           {/* 프론트엔드 */}
           <Flex vertical gap={'middle'} className="skills-container">
-            <div className="title">Front-End</div>
+            <div className="title"><b>Front-End</b></div>
             <Flex gap={'large'} className="skill-row">
               <SkillComponent src='./icons/html5-color.svg' text='HTML5' />
               <SkillComponent src='./icons/css3-color.svg' text='CSS3' />
@@ -515,7 +515,7 @@ export default function Home() {
 
           {/* 상태관리 */}
           <Flex vertical gap={'middle'} className="skills-container">
-            <div className="title">상태관리 및 라이브러리</div>
+            <div className="title"><b>상태관리 및 라이브러리</b></div>
             <Flex gap={'large'} className="skill-row">
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1675253316/noticon/gg2mfsvpu2aje4f8rpuc.png' text='zustand' />
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1570521380/noticon/lbpvcvhvvszxrlu78vnc.png' text='electron' />
@@ -526,7 +526,7 @@ export default function Home() {
 
           {/* Depolyment */}
           <Flex vertical gap={'middle'} className="skills-container">
-            <div className="title">Deployment</div>
+            <div className="title"><b>Deployment</b></div>
             <Flex gap={'large'} className="skill-row">
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566777755/noticon/yfmwxv8nhnr5aqaxhxpg.png' text='AWS' />
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1679312641/noticon/rx8rni4npifrbo9ckxmt.png' text='Vercel' />
@@ -535,13 +535,13 @@ export default function Home() {
 
           {/* AI */}
           <Flex vertical gap={'middle'} className="skills-container">
-            <div className="title">AI</div>
+            <div className="title"><b>AI</b></div>
             <Flex gap={'large'} className="skill-row">
               <SkillComponent src='./icons/openai-color.svg' text='OpenAI' />
             </Flex>
           </Flex>
           <Flex vertical gap={'middle'} className="skills-container">
-            <div className="title">ETC</div>
+            <div className="title"><b>ETC</b></div>
             <Flex gap={'large'} className="skill-row">
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567128822/noticon/osiivsvhnu4nt8doquo0.png' text='Git' />
               <SkillComponent src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1640982247/noticon/tpvr26zp02angin4t0jv.png' text='Figma' />
