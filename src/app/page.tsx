@@ -15,9 +15,14 @@ const projects: Project[] = [
     isPort: true,
     title: "네이버/티스토리 & ChatGPT 블로그 자동 포스팅기",
     description: '2024. 04 (1인 개발) / 웹 & 앱',
-    outline: `Next.js와 Electron 및 ChatGPT를 합쳐서 만든 프로젝트입니다.
-    Next.js사용없이 React으로 개발하면 되지 않나 싶지만 puppeteer는 기본적으로 fs모듈을 사용하기때문에
-    Electron으로도 가능은하지만 Electron을 벗어났을때 웹으로써 활용을 할수 없게됩니다.
+    outline: `Next.js와 ChatGPT를 합쳐서 만든 프로젝트입니다.
+    
+    Next.js사용없이 React으로 개발하면 되지 않나 싶지만 
+    puppeteer는 기본적으로 fs모듈을 사용하기때문에 서버 컴포넌트가 필요합니다 
+    
+    그래서 사용자가 사용할수있게 bat파일을 제공하여 
+    콘솔창이 돌아가는동안 프로그램이자 웹으로써 활용가능한 형태로 사용하게됩니다.
+
     그렇기에 서버컴포넌트를 도입을 위하여 Next.js를 활용하였습니다.
     
     AI의 시대가 다가오는만큼 자동화와 AI를 접목시키는 것이 중요해질 것이라 생각이되어 만든 프로젝트입니다.
@@ -30,6 +35,9 @@ const projects: Project[] = [
     네이버와 Tistory에 자동 포스팅을 해줍니다. 
     
     아래 git은 private로 되어있으며
+    견본품은 naver만 테스트 가능한형태로 
+    아래 download 링크로 구글드라이브에서 프로젝트를 받아 테스트를 해보실 수 있습니다!
+
     사용영상은 youtube로 간략하게 올려두어 좌측 하단에서
     링크로 확인 하실 수 있습니다!
     `,
@@ -41,18 +49,19 @@ const projects: Project[] = [
       './projects/autopost/category/image3.png',],
     main: `- OpenAI의 언어모델 ChatGPT3.5 Turbo를 사용
     - Naver랑 Tistory의 한해서 입력한 아이디만큼 반복 포스팅을 합니다.
-    - Next.js와 Electron을 활용
+    - Next.js로 브라우저와 서버의 역할을 둘다 수행
     - puppeteer를 활용한 자동화 작업
-    - node-canvas를 이용한 캔버스 활용
-    - 크몽사이트에 나와있는 자동 포스팅기의 기능을 구현(15만원 프로그램)
+    - 글만 올라가면 저품질의 위험이 있기때문에 저작권없는 이미지를 가져와 가공
+    - 크몽사이트에 나와있는 자동 포스팅기의 기능을 구현(시중 15만원 프로그램)
     `,
     git: 'https://github.com/goodchuck/yangti-auto-post',
     url: '',
+    download: 'https://drive.google.com/file/d/1ec559DSX6m3N_h26h4eS_Xub7SbT-dkr/view?usp=drive_link',
     notion: 'https://www.notion.so/0cbdd7046f2e4395bfa2ad48b2378b87?pvs=4',
     Frontend: 'Next.js, TypeScript',
     Backend: '-',
     Database: '-',
-    Deployment: 'electron 프로그램'
+    Deployment: '프로그램 제공 형태'
   },
   {
     isPort: true,

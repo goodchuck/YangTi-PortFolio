@@ -25,6 +25,7 @@ export type Project = {
     main: string,
     git?: string,
     url?: string,
+    download?: string,
     notion?: string,
     Frontend: string,
     Backend: string,
@@ -37,7 +38,7 @@ export type Project = {
 
 export const ProjectCard = forwardRef<HTMLDivElement, Project>(({
     projectId, isPort = true, title, description, outline, link, images,
-    main, git, url, notion, Frontend, Backend, Database, Deployment, youtubeLink
+    main, git, url, notion, download, Frontend, Backend, Database, Deployment, youtubeLink
 }, ref) => {
 
     const handleClickEvent = () => {
@@ -113,6 +114,17 @@ export const ProjectCard = forwardRef<HTMLDivElement, Project>(({
                             </div>
                             <div className="value">
                                 {url ? (<a href={url}>홈페이지 보러가기</a>) : '-'}
+                            </div>
+                        </Flex>
+                        <Flex gap={'middle'}>
+                            <div className="icon">
+                                ✔
+                            </div>
+                            <div className="header">
+                                download 링크
+                            </div>
+                            <div className="value">
+                                {download ? (<a href={download}>다운로드 하기</a>) : '-'}
                             </div>
                         </Flex>
                         <Flex gap={'middle'}>
