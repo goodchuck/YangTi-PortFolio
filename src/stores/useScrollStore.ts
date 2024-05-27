@@ -26,6 +26,7 @@ export const useScrollStore = create<ScrollStore>((set, get) => ({
         const sectionElement = document.querySelector(
             `.section-${currentSection}`
         );
+        if (!sectionElement) return;
         const maxScrollTop = sectionElement?.scrollHeight - window.innerHeight;
 
         if (event.deltaY > 0) {
