@@ -14,11 +14,13 @@
         "@ant-design/icons": "^5.3.6",
         "@faker-js/faker": "^8.4.1",
         "antd": "^5.16.2",
+        "framer-motion": "^11.2.6",
         "next": "14.2.1",
         "react": "^18",
         "react-dom": "^18",
         "styled-components": "^6.1.8",
-        "typed.js": "^2.1.0"
+        "typed.js": "^2.1.0",
+        "zustand": "^4.5.2"
     },
     "devDependencies": {
         "@types/node": "^20",
