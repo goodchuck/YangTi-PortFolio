@@ -4,7 +4,7 @@ import { Header } from "../Header/Header";
 import { Component, useEffect, useRef, useState } from "react";
 import useScrollSection from "@/hooks/useScrollSection";
 import ScrollSection from "@/components/ScrollSection";
-import Intro from "@/containers/Intro/IntroForwardRef";
+import Intro from "@/containers/Intro/IntroContainer";
 import ForwardRefLayoutV1, { LayoutHandle } from "@/containers/ForwardRefContainer/ForwardRefContainer";
 import AboutMe from "@/containers/AboutMe/AboutMe";
 import Archiving from "@/containers/Archiving/Archiving";
