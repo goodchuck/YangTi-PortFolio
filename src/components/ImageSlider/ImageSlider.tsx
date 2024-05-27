@@ -45,40 +45,40 @@ interface Image {
 const images: Image[] = [
     {
         title: '자동화 - 네이버/티스토리 GPT기반 내용 자동 포스팅',
-        src: '/projects/autopost/category/autopostShort.gif',
+        src: './projects/autopost/category/autopostShort.gif',
         duration: 20000,
         style: { fontSize: '5rem' }
     },
     {
         title: '알고리즘 - 골드 1',
-        src: '/algorithm/profile.png',
+        src: './algorithm/profile.png',
         duration: 4000,
         style: { fontSize: '5rem' }
     },
     {
         title: 'AI - ChatGPT 기반 PDF 문제 생성기',
-        src: '/projects/PDFProblem/image4.png',
+        src: './projects/PDFProblem/image4.png',
         duration: 4000,
         style: { fontSize: '5rem' }
     },
     {
         title: `프론트 개발 
         프로젝트 : 3D 어노테이션 툴 - 자율주행 정답데이터`,
-        src: '/projects/Dorosee3DTool/Dorosee3DTool1.png',
+        src: './projects/Dorosee3DTool/Dorosee3DTool1.png',
         duration: 4000,
         style: { fontSize: '5rem' }
     },
     {
         title: `프론트 개발 
         프로젝트 : 4S - 삼성전자 사우디 건설 고도화 프로젝트 `,
-        src: '/projects/4S/4S-1.png',
+        src: './projects/4S/4S-1.png',
         duration: 4000,
         style: { fontSize: '5rem' }
     },
     {
         title: `프론트 개발 
         프로젝트 : ROADPMS - AI 도로 하자 검수`,
-        src: '/projects/ROADPMS/ROADPMS3.png',
+        src: './projects/ROADPMS/ROADPMS3.png',
         duration: 4000,
         style: { fontSize: '5rem' }
     },
