@@ -13,7 +13,7 @@ const Experience = () => {
 
     const handleProjectClick = async (id: string) => {
         try {
-            setCurrentSection(5);
+            setCurrentSection(4);
             await sleep(500)
             scrollToProject(id);
         }

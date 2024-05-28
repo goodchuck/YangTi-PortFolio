@@ -35,6 +35,32 @@ const Title = styled.div<{ customStyle: CSSProperties }>`
   font-size: ${(props) => props.customStyle.fontSize || '5rem'};
 `;
 
+const Button = styled(motion.button)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 2rem;
+  border-radius: 50%;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &:nth-of-type(1) {
+    left: 10px;
+  }
+
+  &:nth-of-type(2) {
+    right: 10px;
+  }
+`
+
 interface Image {
     title: string;
     src?: string;
@@ -99,6 +125,17 @@ const ImageSlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const animationFrameId = useRef<number | null>(null);
     const startTime = useRef<number | null>(null);
+    const isManualChange = useRef(false);
+
+    const nextSlide = () => {
+        isManualChange.current = true;
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }
+
+    const prevSlide = () => {
+        isManualChange.current = true;
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    }
 
     useEffect(() => {
         let isMounted = true;
@@ -111,9 +148,14 @@ const ImageSlider = () => {
             const elapsed = timestamp - startTime.current;
             const currentImage = images[currentIndex];
 
-            if (elapsed >= currentImage.duration) {
+            if (elapsed >= currentImage.duration && !isManualChange.current) {
                 startTime.current = timestamp;
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            }
+
+            if (isManualChange.current) {
+                isManualChange.current = false;
+                startTime.current = timestamp;
             }
 
             if (isMounted) {
@@ -148,16 +190,26 @@ const ImageSlider = () => {
 
     return (
         <Container>
+            <Button
+                onClick={prevSlide}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >{"<"}</Button>
             <motion.div
                 style={{ display: 'flex', width: `${images.length * 100}%` }}
                 animate={controls}
             >
                 {images.map((image, index) => (
-                    <Slide key={index} style={{ backgroundImage: `url(${image.src})` }}>
+                    <Slide key={`${index}-${currentIndex}`} style={{ backgroundImage: `url(${image.src})` }}>
                         <Title customStyle={image.style}>{image.title}</Title>
                     </Slide>
                 ))}
             </motion.div>
+            <Button
+                onClick={nextSlide}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >{">"}</Button>
         </Container>
     );
 };

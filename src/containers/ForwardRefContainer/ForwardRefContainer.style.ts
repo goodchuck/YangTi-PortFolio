@@ -10,7 +10,7 @@ export const StyledForwardRefContainer = styled.div`
         flex-direction: column;
         /* justify-content: space-between; */
         padding-top: 20px;
-        padding-bottom: 20px;
+        /* padding-bottom: 20px; */
         width: 100%;
         min-height: 100%;
         /* background-color: aqua; */

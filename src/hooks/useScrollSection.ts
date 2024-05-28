@@ -6,10 +6,15 @@ export const useScrollSection = (numSections: number) => {
         state.handleScroll(numSections)
     );
     useEffect(() => {
-        window.addEventListener("wheel", handleScroll, { passive: false });
+        const handleWheel = (event: WheelEvent) => {
+            event.preventDefault();
+            handleScroll(event);
+        };
+
+        window.addEventListener("wheel", handleWheel, { passive: false });
 
         return () => {
-            window.removeEventListener("wheel", handleScroll);
+            window.removeEventListener("wheel", handleWheel);
         };
     }, [handleScroll]);
 
