@@ -12,7 +12,7 @@ const LoadingContainer = styled(motion.div)`
   top: 0;
   left: 0;
   background: rgba(255, 255, 255, 1);
-  z-index: 1000;
+  z-index: 3000;
 `;
 
 const WaveWrapper = styled.div`
